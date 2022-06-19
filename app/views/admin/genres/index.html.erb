@@ -14,7 +14,7 @@
     <h4>ジャンル</h4>
     <% @genres.each do |genre| %>
     <%= genre.name %>
-    <%= submit_tag '編集する' %>
+    <%= link_to "編集する", edit_admin_genre_path(genre.id), class: "btn btn-success", method: :get %>
     <% end %>
 
 </div>
