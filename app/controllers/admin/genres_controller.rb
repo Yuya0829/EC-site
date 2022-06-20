@@ -5,6 +5,9 @@ class Admin::GenresController < ApplicationController
     if @genre.save
       flash[:success] = "Genre was successfully created."
       redirect_to admin_genres_path
+    else
+      @genres = Genre.all
+      render :index
     end
   end
 
