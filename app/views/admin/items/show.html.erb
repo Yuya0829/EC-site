@@ -5,40 +5,42 @@
   <br>
 
   <div class="row">
-    <div class="col-lg-3"><%= image_tag @item.image,size:"200x200" %></div>
+    <div class="col-lg-3"><%= image_tag @item.image,size:"300x300" %></div>
 
     <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
 
       <table>
+
         <tr>
-
-          <td>
-            <p>商品名:<%= @item.name %></p>
-          </td>
-
-          <td>
-            <p>商品説明<%= @item.introduction %></p>
-          </td>
-
-          <td>
-            <p>ジャンル<%= @item.genre.name %></p>
-          </td>
-
-          <td>
-            <p>税込価格(税抜価格)<%= @item.price %></p>
-          </td>
-
-          <td>
-            <p>販売ステータス</p>
-          </td>
-
+          <td>商品名</td>
+          <td><%= @item.name %></td>
         </tr>
 
         <tr>
-            <td><%= link_to '編集する', class: "btn btn-success" %></td>
+          <td>商品説明</td>
+          <td><%= @item.introduction %></td>
+        </tr>
+
+        <tr>
+          <td>ジャンル</td>
+          <td><%= @item.genre.name %></td>
+        </tr>
+
+        <tr>
+          <td>税込価格(税抜価格)</td>
+          <td><%= @item.price %></td>
+        </tr>
+
+        <tr>
+          <td>販売ステータス</td>
         </tr>
 
       </table>
+
+      <br>
+      <div class="col-lg-3 offset-lg-3">
+        <%= link_to '編集する', class: "btn btn-success" %>
+      </div>
     </div>
   </div>
 </div>
