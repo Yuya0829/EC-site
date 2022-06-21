@@ -1,8 +1,10 @@
 <div class="container">
-    
+
     <h1>商品一覧</h1>
     <br>
-    
+    <br>
+
+   <table class="table">
     <thead>
         <tr>
             <th>商品ID</th>
@@ -12,15 +14,20 @@
             <th>ステータス</th>
         </tr>
     </thead>
-    
+
     <tbody>
         <% @items.each do |item| %>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td><%= item.id %></td>
+            <td><%= item.name %></td>
+            <td><%= item.price %></td>
+            <td><%= item.genre.name %></td>
             <td></td>
         </tr>
+        <% end %>
     </tbody>
+    </table>
+    <div class="col-lg-3 offset-lg-4">
+    <%= paginate @items %>
+    </div>
 </div>

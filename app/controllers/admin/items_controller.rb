@@ -7,6 +7,7 @@ class Admin::ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
+      flash[:success] = "Item was successfully created."
       redirect_to admin_items_path
     else
       render :new
@@ -14,7 +15,8 @@ class Admin::ItemsController < ApplicationController
   end
 
   def index
-    @items = Item.all
+    @items = Item.page(params[:page])
+    @genres = Genre.page(params[:page])
   end
 
   def show
@@ -24,7 +26,7 @@ class Admin::ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name, :image, :introduction, :price)
+    params.require(:item).permit(:genre_id, :name, :image, :introduction, :price)
   end
 
 end
