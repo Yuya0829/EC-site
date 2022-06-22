@@ -1,6 +1,6 @@
 <div class="container">
    <% if @genre.errors.any? %>
-    　<%= @genre.errors.count %>errors prohibited this obj from being saved:
+    　<%= @genre.errors.count %>errors prohibited this obj from being saved: 
       <ul>
       <% @genre.errors.full_messages.each do |message| %>
       <li><%= message %></li>

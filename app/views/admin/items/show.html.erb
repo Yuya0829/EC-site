@@ -9,7 +9,7 @@
 
     <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
 
-      <table>
+      <table class="table-borderless table-condensed">
 
         <tr>
           <td>商品名</td>
@@ -27,8 +27,8 @@
         </tr>
 
         <tr>
-          <td>税込価格(税抜価格)</td>
-          <td><%= @item.price %></td>
+          <td>税込価格</br>(税抜価格)</td>
+          <td><%= @item.price %>( <%= @tax_out %> )円</td>
         </tr>
 
         <tr>
@@ -39,7 +39,7 @@
 
       <br>
       <div class="col-lg-3 offset-lg-3">
-        <%= link_to '編集する', class: "btn btn-success" %>
+        <td><%= link_to "編集する", edit_admin_item_path(@item.id), class: "btn btn-success", method: :get %></td>
       </div>
     </div>
   </div>
