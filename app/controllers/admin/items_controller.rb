@@ -7,9 +7,10 @@ class Admin::ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      flash[:success] = "Item was successfully created."
+      flash[:notice] = "Item was successfully created."
       redirect_to admin_items_path
     else
+      @genres = Genre.all
       render :new
     end
   end
@@ -32,9 +33,10 @@ class Admin::ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     if @item.update(item_params)
-      flash[:success] = "Item was successfully updated."
+      flash[:notice] = "Item was successfully updated."
       redirect_to admin_items_path
     else
+      @genres = Genre.all
       render :edit
     end
   end
