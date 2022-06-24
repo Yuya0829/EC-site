@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
 
+  get 'homes/top'
+  get "home/about" => "homes#about", as: "about"
+
   namespace :admin do
     get 'items/new'
     get 'items/index'
     get 'items/show'
     get 'items/edit'
   end
+  
 # 顧客用
 devise_for :customers,skip: [:passwords], controllers: {
   registrations: "public/registrations",
@@ -20,5 +24,5 @@ devise_for :admin,skip: [:registrations, :passwords], controllers: {
 namespace :admin do
   resources :genres, :items
 end
- 
+
 end
