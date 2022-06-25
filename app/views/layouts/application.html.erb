@@ -30,7 +30,7 @@
         　<div class="navbar-collapse collapse show" id="navbarNavDropdown">
         　<ul class="navbar-nav ml-auto">
 
-        　<%# if user_signed_in? %>
+        　<% if admin_signed_in? %>
 
         　 <li>
            <%= link_to admin_items_path,class:"nav-link text-light" do %>
@@ -57,22 +57,22 @@
            </li>
 
            <li>
-            <%#= link_to destroy_user_session_path,class:"nav-link text-light", method: :delete do %>
-             <%#ログアウト
+            <%= link_to destroy_admin_session_path,class:"nav-link text-light", method: :delete do %>
+             ログアウト
             <% end %>
            </li>
 
-          <%# else %>
+          <% else %>
 
           <li>
-           <%#= link_to about_path,class:"nav-link text-light" do %>
-             <%# About
+           <%= link_to about_path,class:"nav-link text-light" do %>
+              About
            <% end %>
           </li>
 
           <li>
-           <%#= link_to admin_items_path,class:"nav-link text-light" do %>
-             <%# 商品一覧
+           <%= link_to admin_items_path,class:"nav-link text-light" do %>
+              商品一覧
            <% end %>
           </li>
 
@@ -83,12 +83,12 @@
           </li>
 
           <li>
-           <%#= link_to new_user_session_path,class:"nav-link text-light" do %>
-             <%# ログイン
+           <%= link_to new_admin_session_path,class:"nav-link text-light" do %>
+              ログイン
            <% end %>
           </li>
 
-          <%# end %>
+          <% end %>
 
         </div>
       </nav>
