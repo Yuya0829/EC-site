@@ -19,45 +19,45 @@
         <table>
           <tbody>
             <tr>
-              <td><%= f.label :名前 %></td>
-              <td>(姓)<%= f.text_field :last_name %>
-                  (名)<%= f.text_field :first_name %></td>
+              <td>名前</td>
+              <td><%= f.label :last_name,"(姓)",class: "customer_name" %><%= f.text_field :last_name %></td>
+              <td><%= f.label :first_name,"(名)",class: "customer_name" %><%= f.text_field :first_name %></td>
             </tr>
 
             <tr>
-              <td><%= f.label :フリガナ %></td>
-              <td>(セイ)<%= f.text_field :last_name_kana %>
-                  (メイ)<%= f.text_field :first_name_kana %></td>
+              <td>フリガナ</td>
+              <td><%= f.label :last_name_kana,"(セイ)",class: "customer_kana_name" %><%= f.text_field :last_name_kana %></td>
+              <td><%= f.label :first_name_kana,"(メイ)",class: "customer_kana_name" %><%= f.text_field :first_name_kana %></td>
             </tr>
 
             <tr>
-              <td><%= f.label :メールアドレス %></td>
-              <td><%= f.text_field :email, autofocus: true, autocomplete: "email" %></td>
+              <td><%= f.label :email,"メールアドレス",class: "infomersion" %></td>
+              <td colspan="2"><%= f.text_field :email, autofocus: true, autocomplete: "email" %></td>
             </tr>
 
             <tr>
-              <td><%= f.label :郵便番号 %></td>
-              <td><%= f.text_field :postal_code %></td>
+              <td><%= f.label :postal_code,"郵便番号",class: "infomersion" %>(ハイフンなし)</td>
+              <td colspan="2"><%= f.text_field :postal_code %></td>
             </tr>
 
             <tr>
-              <td><%= f.label :住所 %></td>
-              <td><%= f.text_field :address, :size=>"50" %></td>
+              <td><%= f.label :address,"住所",class: "infomersion" %></td>
+              <td colspan="2"><%= f.text_field :address, :size=>"50" %></td>
             </tr>
 
             <tr>
-              <td><%= f.label :電話番号 %></td>
-              <td><%= f.text_field :telephone_number %></td>
+              <td><%= f.label :telephone_number,"電話番号",class: "infomersion" %>(ハイフンなし)</td>
+              <td colspan="2"><%= f.text_field :telephone_number %></td>
             </tr>
 
             <tr>
-              <td><%= f.label :パスワード %></td>
-              <td><%= f.text_field :encrypted_password %></td>
+              <td><%= f.label :encrypted_password,"パスワード",class: "infomersion" %>(6文字以上)</td>
+              <td colspan="2"><%= f.text_field :encrypted_password %></td>
             </tr>
 
             <tr>
-              <td><%= f.label :パスワード %></td>
-              <td><%= f.text_field :encrypted_password %></td>
+              <td><%= f.label :encrypted_password,"パスワード",class: "infomersion" %>(確認用)</td>
+              <td colspan="2"><%= f.text_field :encrypted_password %></td>
             </tr>
 
             <tr>
@@ -65,14 +65,15 @@
             </tr>
           </tbody>
         </table>
-        <%= render "public/shared/links" %>
         <% end %>
     </div>
   </div>
 </div>
 
 <br>
+<br>
 <div class="container">
-  <h2>既に登録済みの方</h2>
+  <h4>既に登録済みの方</h4>
+  <p><%= render "public/shared/links" %>からログインしてください</p>
 </div>
 
