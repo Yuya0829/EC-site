@@ -51,13 +51,13 @@
             </tr>
 
             <tr>
-              <td><%= f.label :encrypted_password,"パスワード",class: "infomersion" %>(6文字以上)</td>
-              <td colspan="2"><%= f.text_field :encrypted_password %></td>
+              <td><%= f.label :password ,"パスワード",class: "infomersion" %>(6文字以上)</td>
+              <td colspan="2"><%= f.password_field :password %></td>
             </tr>
 
             <tr>
               <td><%= f.label :encrypted_password,"パスワード",class: "infomersion" %>(確認用)</td>
-              <td colspan="2"><%= f.text_field :encrypted_password %></td>
+              <td colspan="2"><%= f.password_field :encrypted_password %></td>
             </tr>
 
             <tr>

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   scope module: :public do
     get '/' => 'homes#top'
     get "about" => "homes#about", as: "about"
+    get "customers/my_page" => "customers#show"
   end
 
   namespace :admin do
