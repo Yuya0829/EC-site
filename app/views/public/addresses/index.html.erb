@@ -1,4 +1,5 @@
 <div class="container">
+  <br>
   <h1>配送先登録/一覧</h1>
    <% if @address.errors.any? %>
       <%= @address.errors.count %>errors prohibited this obj from being saved:
@@ -9,50 +10,53 @@
       </ul>
     <% end %>
 
+    <br>
     <div class="row">
+      <table class="table col-lg-8">
 
-      <%= form_with model: @address, url: public_addresses_path do |f| %>
+        <%= form_with model: @address, url: addresses_path do |f| %>
 
-      <table class="table col-lg-4">
-        <tbody>
-          <tr>
-            <td><%= f.label :郵便番号 %>(ハイフンなし)</td>
-            <td><%= f.text_field :postal_code %></td>
-          </tr>
+          <tbody>
+            <tr>
+              <td><%= f.label :郵便番号 %>(ハイフンなし)</td>
+              <td><%= f.text_field :postal_code %></td>
+            </tr>
 
-          <tr>
-            <td><%= f.label :住所 %></td>
-            <td><%= f.text_field :address %></td>
-          </tr>
+            <tr>
+              <td><%= f.label :住所 %></td>
+              <td><%= f.text_field :address %></td>
+            </tr>
 
-          <tr>
-            <td><%= f.label :宛名 %></td>
-            <td><%= f.text_field :name %></td>
-            <td><%= f.submit '新規登録', class: "btn btn-success" %></td>
-          </tr>
-        </tbody>
+            <tr>
+              <td><%= f.label :宛名 %></td>
+              <td><%= f.text_field :name %></td>
+              <td><%= f.submit '新規登録', class: "btn btn-success" %></td>
+            </tr>
+          </tbody>
+
+        <% end %>
       </table>
 
         <table class="table table-bordered">
-           <% @addresses.each do |address| %>
           <tbody>
-            
+
             <tr>
               <th>郵便番号</th>
               <th>住所</th>
               <th>宛名</th>
             </tr>
 
+            <% @addresses.each do |address| %>
             <tr>
-              <td><%= f.text_field :postal_code %></td>
-              <td><%= f.text_field :address %></td>
-              <td><%= f.text_field :name %></td>
-              <td><%= f.submit '編集する', class: "btn btn-success" %></td>
-              <td><%= f.submit '削除する', class: "btn btn-danger" %></td>
+              <td><%= address.postal_code %></td>
+              <td><%= address.address %></td>
+              <td><%= address.name %></td>
+              <td><%= link_to "編集する", edit_address_path(address), class: "btn btn-success", method: :get %></td>
+              <td><%= link_to "削除する", address_path(address), class: "btn btn-danger", method: :delete %></td>
             </tr>
-            
+            <% end %>
+
           </tbody>
         </table>
-
     </div>
 </div>

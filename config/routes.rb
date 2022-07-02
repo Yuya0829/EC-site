@@ -9,7 +9,8 @@ Rails.application.routes.draw do
     patch 'withdraw' => 'customers#withdraw', as: 'withdraw_customer'
     put 'withdraw' => 'customers#withdraw'
     resource :customers, only: [:update]
-    get "addresses" => "addresses#index"
+    resources :addresses
+
   end
 
   namespace :admin do
