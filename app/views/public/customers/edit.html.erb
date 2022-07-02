@@ -10,7 +10,7 @@
     <% end %>
 
     <div class="row">
-      <div  class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-8">
+      <div  class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
 
         <%= form_with model: @customer, url: customers_path do |f| %>
 
@@ -54,8 +54,7 @@
 
 　　　　<br>
         <div><%= f.submit '編集内容を保存', class: "btn btn-success" %>
-        　　 　<%= f.submit '退会する', class: "btn btn-success" %></div>
-
+        　　   <%= link_to "退会する", confirm_unsubscribe_path, class: "btn btn-success" , method: :get %>
         <% end %>
       </div>
     </div>

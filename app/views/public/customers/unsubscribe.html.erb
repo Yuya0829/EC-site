@@ -2,17 +2,27 @@
   <div class="row">
     <div  class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-8">
 
-      <h4>本当に退会しますか？</h4>
-      
-      <div>
-        退会すると、会員登録情報や</br>
-        これまでの購入履歴が閲覧できなくなります。</br>
-        退会する場合は、「退会する」をクリックしてください。
-      </div>
+　　　<br>
+      <table>
+        <tbody>
+          <tr>
+            <h4><b>本当に退会しますか？</b></h4>
+          </tr>
+          
+          <tr>
+            <td>
+               退会すると、会員登録情報や</br>
+               これまでの購入履歴が閲覧できなくなります。</br>
+               退会する場合は、「退会する」をクリックしてください。
+            </td>
+          </tr>
+        </tbody>
+      </table>
 
-      <div><%= link_to "退会しない", class: "btn btn-primary", method: :get %></div>
-      <div><%= link_to "退会する", class: "btn btn-danger", method: :get %></div>
-      
+　　　<br>
+      <div><%= link_to "退会しない", customers_my_page_path(@customer), class: "btn btn-primary" %>　
+           <%= link_to "退会する", withdraw_customer_path(@customer), class: "btn btn-danger", method: :patch %></div>
+
     </div>
   </div>
 </div>
