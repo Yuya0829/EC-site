@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     patch 'withdraw' => 'customers#withdraw', as: 'withdraw_customer'
     put 'withdraw' => 'customers#withdraw'
     resource :customers, only: [:update]
-    resources :addresses
+    resources :addresses, :items
 
   end
 
