@@ -29,7 +29,7 @@
           <% @items.each do |item| %>
           <tr>
             <td><%= image_tag item.image,size:"100x100" %></td>
-            <td><%= link_to item.name, items_path(item.id) %></td>
+            <td><%= link_to item.name, item_path(item.id) %></td>
             <td><%= item.price %></td>
           </tr>
           <% end %>
