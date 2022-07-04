@@ -23,17 +23,13 @@
         <tr>
           <td><h2><b>商品一覧</b></h2></td>
           <td><h4>（全<%= @items_count %>件）</h4></td>
-          <td>
-            ※ジャンル検索の場合、「商品一覧」の部分は「（ジャンル名）一覧」に変更する</br>
-            ＜例＞「ケーキ一覧」
-          </td>
         </tr>
 
         <tbody>
           <% @items.each do |item| %>
           <tr>
             <td><%= image_tag item.image,size:"100x100" %></td>
-            <td><%= item.name %></td>
+            <td><%= link_to item.name, items_path(item.id) %></td>
             <td><%= item.price %></td>
           </tr>
           <% end %>
