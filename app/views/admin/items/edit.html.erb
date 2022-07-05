@@ -1,7 +1,7 @@
 <div class="container">
   <h1>商品編集</h1>
   <% if @item.errors.any? %>
-      <%= @item.errors.count %>errors prohibited this obj from being saved: 
+      <%= @item.errors.count %>errors prohibited this obj from being saved:
       <ul>
       <% @item.errors.full_messages.each do |message| %>
       <li><%= message %></li>
@@ -43,7 +43,7 @@
          </tr>
 
          <tr>
-           <td><%= f.label :販売ステータス %></td>
+           <td><%= f.label :販売ステータス %>　　</td>
            <td><%= f.radio_button :is_active,true %>
                <%= f.label :is_active, "販売中" %>
                <%= f.radio_button :is_active,false %>
@@ -51,6 +51,7 @@
          </tr>
 
          <tr>
+           <td></td>
            <td><%= f.submit '変更を保存', class: "btn btn-success" %></td>
          </tr>
 
