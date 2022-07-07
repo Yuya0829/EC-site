@@ -22,7 +22,7 @@
 
     <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
 
-      <%= form_with model: @item, url: items_path do |f| %>
+       <%= form_with model: @cart_item, url: cart_items_path do |f| %>
 
       <table class="table-borderless table-condensed">
         <tr>
@@ -43,16 +43,13 @@
 
         <tr>
           <td>
-          <%= form_for(@cart_item) do |f| %>
             <% if customer_signed_in? %>
-             <%= f.hidden_field :user_id, :value => current_customer.id %>
+             <%= f.hidden_field :customer_id, :value => current_customer.id %>
             <% end %>
             <%= f.hidden_field :item_id, :value => @item.id %>
             <%= f.submit 'カートに入れる', class: "btn btn-success" %>
-          <% end %>
-         </td>
+        </td>
       </tr>
-
 
       </table>
       <% end %>
