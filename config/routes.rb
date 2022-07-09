@@ -9,8 +9,9 @@ Rails.application.routes.draw do
     patch 'withdraw' => 'customers#withdraw', as: 'withdraw_customer'
     put 'withdraw' => 'customers#withdraw'
     resource :customers, only: [:update]
-    resources :addresses, :items, :cart_items
     delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
+    resources :addresses, :items, :cart_items
+
 
   end
 
