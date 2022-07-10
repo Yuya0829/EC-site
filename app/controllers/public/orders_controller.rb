@@ -3,7 +3,7 @@ class Public::OrdersController < ApplicationController
   def new
     @order = Order.new
     @addresses = Address.all
-    
+
   end
 
   def confirm
@@ -14,6 +14,7 @@ class Public::OrdersController < ApplicationController
     @order.postal_code = @address.postal_code
     @order.address = @address.address
     @order.name = @address.name
+    #binding.pry
   end
 
   def compleate
