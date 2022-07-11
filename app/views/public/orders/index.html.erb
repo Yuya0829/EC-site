@@ -1,0 +1,33 @@
+<div class="container">
+  <br>
+  <h1>注文履歴一覧</h1>
+  <br>
+  <div class="row">
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th bgcolor="#DCDCDC">注文日</th>
+        <th bgcolor="#DCDCDC">配送先</th>
+        <th bgcolor="#DCDCDC">注文商品</th>
+        <th bgcolor="#DCDCDC">支払金額</th>
+        <th bgcolor="#DCDCDC">ステータス</th>
+        <th bgcolor="#DCDCDC">注文詳細</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @.each do || %>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><%= submit_tag '表示する', class: "btn btn-primary" %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </div>
+</div>
