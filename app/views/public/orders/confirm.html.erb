@@ -46,24 +46,30 @@
        </tbody>
      </table>
 
-    <div>
-      <h3><b>支払方法</b></h3>
-      <div><% if @order.payment_method == "credit_card" %>
-            <span>クレジットカード</span>
-           <% else %>
-            <span>銀行振込</span>
-           <% end %>
-      </div>
-    </div>
+    <table>
+      <tbody>
+        <tr>
+          <td><h3><b>支払方法</b></h3></td>
+          <td><% if @order.payment_method == "credit_card" %>
+               <span>クレジットカード</span>
+              <% else %>
+               <span>銀行振込</span>
+              <% end %>
+          </td>
+        </tr>
 
-    <div>
-      <h3><b>お届け先</b></h3>
-      <div></div>
-    </div>
+        <tr>
+          <td><h3><b>お届け先</b></h3></td>
+          <td>
+            〒<%= @postal_code %><%= @current_customer_address %></br>
+              <%= @name %>
+          </td>
+        </tr>
 
-    <div>
-      <%= submit_tag '注文を確定する', class: "btn btn-success" %>
-    </div>
-
+        <tr>
+          <td><%= link_to "注文を確定する", orders_compleate_path, class: "btn btn-success" %></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>

@@ -10,10 +10,22 @@ class Public::OrdersController < ApplicationController
     @cart_items = current_customer.cart_items
     @total = 0
     @order = Order.new(order_params)
-    @address = Address.find(params[:order][:address_id])
-    @order.postal_code = @address.postal_code
-    @order.address = @address.address
-    @order.name = @address.name
+    @select_address = params[:select_address]
+     if @select_address == "0"
+        @address = Customer.find_by(id: current_customer.id)
+        @postal_code = @address.postal_code
+        @current_customer_address = @address.address
+        @name =  @address.last_name + @address.first_name
+     elsif @select_address == "1"
+        @address = Address.find(params[:address_id])
+        @postal_code = @address.postal_code
+        @current_customer_address = @address.address
+        @name = @address.name
+     else
+        @postal_code = params[:order][:postal_code]
+        @current_customer_address = params[:order][:address]
+        @name = params[:order][:name]
+     end
     #binding.pry
   end
 
