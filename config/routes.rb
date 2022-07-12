@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     get 'items/index'
     get 'items/show'
     get 'items/edit'
+    get 'orders/show'
     resources :homes, :genres, :items, :customers
   end
 

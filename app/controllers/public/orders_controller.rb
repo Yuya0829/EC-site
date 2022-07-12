@@ -19,7 +19,7 @@ class Public::OrdersController < ApplicationController
      elsif @select_address == "1"
         @address = Address.find(params[:address_id])
         @order.postal_code = @address.postal_code
-        @order.ddress = @address.address
+        @order.address = @address.address
         @order.name = @address.name
      else
         @order.postal_code = params[:order][:postal_code]
@@ -34,6 +34,7 @@ class Public::OrdersController < ApplicationController
 
   def create
      @order = Order.new(order_params)
+     @order.status = 0
     if @order.save
       flash[:notice] = "Order was successfully created."
       @cart_items = current_customer.cart_items
@@ -61,6 +62,9 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
+     #@order = current_customer.orders
+     #@total = current_customer.cart_item.subtotal
+     #@order.shipping_cost = 800
   end
 
 
