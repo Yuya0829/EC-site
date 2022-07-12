@@ -19,7 +19,7 @@ class Public::OrdersController < ApplicationController
      elsif @select_address == "1"
         @address = Address.find(params[:address_id])
         @order.postal_code = @address.postal_code
-        @order.current_customer_address = @address.address
+        @order.ddress = @address.address
         @order.name = @address.name
      else
         @order.postal_code = params[:order][:postal_code]
@@ -55,6 +55,9 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
+     @cart_items = current_customer.cart_items
+     @orders = current_customer.orders
+
   end
 
   def show
