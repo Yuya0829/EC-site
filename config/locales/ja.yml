@@ -15,4 +15,8 @@
 
       order_detail:
         making_status:
+          not_startable: "着手不可"
+          waiting_for_production: "製作待ち"
+          in_production: "製作中"
+          production_completed: "製作完了"
 
