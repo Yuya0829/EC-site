@@ -22,11 +22,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get '/' => 'homes#top'
-    get 'items/new'
-    get 'items/index'
-    get 'items/show'
-    get 'items/edit'
-    get 'orders/show'
+    get 'orders/:id' => 'orders#show',as:'order'
     resources :homes, :genres, :items, :customers
   end
 
