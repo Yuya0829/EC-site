@@ -16,7 +16,7 @@ class Admin::OrderDetailsController < ApplicationController
         end
       end
 
-      if is_all_completed　　　　　　　　　　　　#もしorder.detailsのmaking_status==製作完了だったら
+      if is_all_completed                          #もしorder.detailsのmaking_status==製作完了だったら
         @order.update(status: "preparing_to_ship") #@orderのstatusを発送準備中にupdate
       end
 
