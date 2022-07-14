@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   namespace :admin do
     get '/' => 'homes#top'
     get 'orders/:id' => 'orders#show',as:'order'
+    patch 'orders/:id' => 'orders#update'
+    patch 'orders/:order_id/order_details/:id' => 'order_details#update'
     resources :homes, :genres, :items, :customers
   end
 

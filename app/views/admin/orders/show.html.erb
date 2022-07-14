@@ -4,6 +4,7 @@
   <br>
 
   <div class="row">
+    <%= form_with model: @order, url: admin_order_path(@order.id) do |f| %>
     <table>
       <tr>
         <th>購入者</th>
@@ -26,14 +27,12 @@
       </tr>
 
       <tr>
-        <%= form_with model: @order, url: admin_order_path(@order.id) do |f| %>
         <th>注文ステータス</th>
-        <td><%= @order.status_i18n %></td>
-            <%#= f.collection_select :status, @order, :id, :name %>
-        <td><%= submit_tag '更新', class: "btn btn-success" %></td>
-        <% end %>
+        <td><%= f.select :status, Order.statuses.keys.map{|k| [I18n.t("enums.order.status.#{k}"),k]} %></td>
+        <td><%= f.submit "更新", class: "btn btn-success" %></td>
       </tr>
     </table>
+    <% end %>
 
     <table class="table">
       <thead>
@@ -54,7 +53,11 @@
           <td><%= order_detail.item.with_tax_price %></td>
           <td><%= order_detail.amount %></td>
           <td><%= order_detail.subtotal %></td>
-          <td></td>
+          <td>
+            <%= form_with model: @order.order_details, url: admin_order_path(@order.id) do |f| %>
+            <%= f.select :making_status, OrderDetail.statuses.keys.map{|k| [I18n.t("enums.order_detail.making_status.#{k}"),k]} %>
+            <% end %>
+          </td>
           <td><%= submit_tag '更新', class: "btn btn-success" %></td>
         </tr>
         <% end %>
