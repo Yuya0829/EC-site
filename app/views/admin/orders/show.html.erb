@@ -54,11 +54,11 @@
           <td><%= order_detail.amount %></td>
           <td><%= order_detail.subtotal %></td>
           <td>
-            <%= form_with model: @order.order_details, url: admin_order_path(@order.id) do |f| %>
-            <%= f.select :making_status, OrderDetail.statuses.keys.map{|k| [I18n.t("enums.order_detail.making_status.#{k}"),k]} %>
+            <%= form_with model: order_detail, url: admin_order_detail_path(order_id: @order.id, id: order_detail.id), method: :patch do |f|%>
+              <%= f.select :making_status, OrderDetail.making_statuses.keys.map{|k| [I18n.t("enums.order_detail.making_status.#{k}"),k]} %>
+              <%= f.submit '更新', class: "btn btn-success" %>
             <% end %>
           </td>
-          <td><%= submit_tag '更新', class: "btn btn-success" %></td>
         </tr>
         <% end %>
       </tbody>

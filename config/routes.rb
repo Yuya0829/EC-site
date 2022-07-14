@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     get '/' => 'homes#top'
     get 'orders/:id' => 'orders#show',as:'order'
     patch 'orders/:id' => 'orders#update'
-    patch 'orders/:order_id/order_details/:id' => 'order_details#update'
+    patch 'orders/:order_id/order_details/:id' => 'order_details#update', as: 'order_detail'
     resources :homes, :genres, :items, :customers
   end
 
