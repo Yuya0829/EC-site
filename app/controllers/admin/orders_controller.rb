@@ -1,5 +1,7 @@
 class Admin::OrdersController < ApplicationController
 
+    before_action :authenticate_admin!
+
   def show
      @order = Order.find(params[:id])
      @total = 0
@@ -12,11 +14,11 @@ class Admin::OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
     if @order.update(order_params)
-      
+
       if @order.status == 'payment_confirmation' #もし@order.status==入金確認だったら
          @order.order_details.update(making_status: 'waiting_for_production') #order.detailsのstatusを製作待ちにupdate
       end
-      
+
       flash[:notice] = "Order was successfully updated."
       redirect_to admin_order_path(@order.id)
     else
