@@ -26,7 +26,7 @@
 
       <div class="my-3">
         <%= radio_button_tag "select_address",1 %>登録済住所から選択</br>
-        <%= select_tag "address_id", options_from_collection_for_select(Address.all, :id, :address_display) %>
+        <%= select_tag "address_id", options_from_collection_for_select(current_customer.addresses, :id, :address_display) %>
       </div>
 
       <div class="my-3">

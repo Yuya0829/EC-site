@@ -4,6 +4,7 @@ class Customer < ApplicationRecord
 
   has_many :cart_items
   has_many :orders
+  has_many :addresses
 
    validates :last_name, :first_name, :last_name_kana, :first_name_kana, presence: true
    validates :email, :postal_code, :address, :telephone_number, presence: true
