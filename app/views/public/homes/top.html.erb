@@ -19,27 +19,26 @@
     </div>
 
     <div class="col-lg-10">
+       <div class="text">
+            ようこそ、ながのCAKEへ！</br>
+            このサイトは、ケーキ販売のECサイトになります。</br>
+            会員でない方も商品は閲覧できますが、</br>
+            購入には会員登録が必要になります。</br>
+       </div>
+
       <table>
-        <thead>
-          <tr>
-            <td><img class="image" src="/assets/sunset.jpg"style= "height: 300px; width: 400px;"></td>
-            <!--ようこそ、ながのCAKEへ！</br>-->
-            <!--このサイトは、ケーキ販売のECサイトになります。</br>-->
-            <!--会員でない方も商品は閲覧できますが、</br>-->
-            <!--購入には会員登録が必要になります。</br>-->
-          </tr>
-        </thead>
         <tr>
           <td><h2><b>新着商品</b></h2></td>
         </tr>
         <tbody>
-           <% @items.each do |item| %>
           <tr>
-            <td><%= image_tag item.image,size:"100x100" %></td>
-            <td><%= item.name %></td>
-            <td><%= item.price %></td>
-          </tr>
+           <% @items.each do |item| %>
+            <td><%= image_tag item.image,size:"100x100" %>
+            　　<h6><%= item.name %></h6>
+            　　<p><%= item.price %></p>
+            </td>
           <% end %>
+          </tr>
         </tbody>
         <tr>
           <td><%= link_to "全ての商品を見る >", items_path %></td>

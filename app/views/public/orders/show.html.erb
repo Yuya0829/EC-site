@@ -4,6 +4,7 @@
   <br>
 
   <div class="row">
+    <div class="col-7">
     <h5><b>注文情報</b></h5>
     <table class="table table-bordered">
        <tbody>
@@ -33,26 +34,6 @@
        </tbody>
     </table>
 
-    <h5><b>請求情報</b></h5>
-    <table class="table table-bordered">
-      <tbody>
-        <tr>
-           <th bgcolor="#DCDCDC">商品合計</th>
-           <td><%= @total %></td>
-         </tr>
-
-         <tr>
-           <th bgcolor="#DCDCDC">配送料</th>
-           <td><%= @order.shipping_cost %></td>
-         </tr>
-
-         <tr>
-           <th bgcolor="#DCDCDC">ご請求額</th>
-           <td><%= @order.total_payment %></td>
-         </tr>
-      </tbody>
-    </table>
-
     <h5><b>注文内容</b></h5>
     <table class="table table-bordered">
      <thead>
@@ -73,5 +54,28 @@
        <% end %>
      </tbody>
     </table>
+    </div>
+
+    <div class="col-5">
+    <h5><b>請求情報</b></h5>
+    <table class="table table-bordered">
+      <tbody>
+        <tr>
+           <th bgcolor="#DCDCDC">商品合計</th>
+           <td><%= @total %></td>
+         </tr>
+
+         <tr>
+           <th bgcolor="#DCDCDC">配送料</th>
+           <td><%= @order.shipping_cost %></td>
+         </tr>
+
+         <tr>
+           <th bgcolor="#DCDCDC">ご請求額</th>
+           <td><%= @order.total_payment %></td>
+         </tr>
+      </tbody>
+    </table>
+    </div>
   </div>
 </div>

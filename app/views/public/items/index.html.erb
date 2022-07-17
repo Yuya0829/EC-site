@@ -26,13 +26,14 @@
         </tr>
 
         <tbody>
-          <% @items.each do |item| %>
           <tr>
-            <td><%= image_tag item.image,size:"100x100" %></td>
-            <td><%= link_to item.name, item_path(item.id) %></td>
-            <td><%= item.price %></td>
-          </tr>
+          <% @items.each do |item| %>
+            <td><%= image_tag item.image,size:"100x100" %>
+                <h6><%= link_to item.name, item_path(item.id) %></h6>
+                <p><%= item.price %></p>
+            </td>
           <% end %>
+          </tr>
         </tbody>
 
       </table>
