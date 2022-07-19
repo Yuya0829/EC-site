@@ -33,8 +33,8 @@
         <tbody>
           <tr>
            <% @items.each do |item| %>
-            <td><%= image_tag item.image,size:"100x100" %>
-            　　<h6><%= item.name %></h6>
+            <td><%= link_to image_tag(item.image,size:"100x100"), item_path(item.id) %>
+            　　<h6><%= link_to item.name, item_path(item.id) %></h6>
             　　<p><%= item.price %></p>
             </td>
           <% end %>
